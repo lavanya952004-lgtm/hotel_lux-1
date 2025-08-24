@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Booking - About</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+    .site-header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: #c59d5f;
+      color: #fff;
+      border-radius: 5px;
+    }
+    .about-section {
+      padding: 4rem 0;
+      background-color: #fff;
+    }
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .about-text, .about-image {
+      flex: 1 1 45%;
+    }
+    .about-text h2 {
+      margin-bottom: 1rem;
+    }
+    .about-text p {
+      line-height: 1.6;
+      color: #555;
+    }
+    .about-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <h1 class="logo">HotelLux</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="about-section container">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About HotelLux</h2>
+        <p>HotelLux is a premier luxury hotel offering exceptional accommodations and world-class service. Established in 2010, our mission is to create unforgettable experiences for our guests with the highest level of comfort and hospitality.</p>
+        <p>Located in the heart of the city, HotelLux features elegant rooms, top-tier amenities, and dedicated staff who are always ready to assist. Whether you're here for business or leisure, we strive to make your stay truly memorable.</p>
+      </div>
+      <div class="about-image">
+        <!-- ✅ Make sure this image file exists in your 'images' folder -->
+        <img src="hotel.jpg" alt="Hotel Image" />
+      </div>
+    </div>
+  </section>
+</body>
+</html>
