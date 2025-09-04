@@ -1,0 +1,109 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Booking</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to DreamStay Hotel</h1>
+  </header>
+
+  <section class="booking-form">
+    <h2>Book Your Stay</h2>
+    <form action="/book" method="POST">
+      <label>Name: <input type="text" name="name" required></label>
+      <label>Email: <input type="email" name="email" required></label>
+      <label>Check-in Date: <input type="date" name="checkin" required></label>
+      <label>Check-out Date: <input type="date" name="checkout" required></label>
+      <label>Guests:
+        <select name="guests"> 
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3+">3+</option>
+        </select>
+      </label>
+      <button type="submit">Book Now</button>
+    </form>
+  </section>
+</body>
+</html>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background: #0074D9;
+  color: #fff;
+  padding: 1em;
+  text-align: center;
+}
+
+.booking-form {
+  background: white;
+  margin: 2em auto;
+  padding: 2em;
+  max-width: 500px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.booking-form label {
+  margin-bottom: 1em;
+}
+
+.booking-form button {
+  background: #0074D9;
+  color: white;
+  border: none;
+  padding: 0.7em;
+  cursor: pointer;
+  border-radius: 4px;
+}
+const express = require('express');
+const path = require('path');
+const bodyParser = require('body-parser');
+
+const app = express();
+const PORT = 3000;
+
+// Middleware
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'views', 'index.html'));
+});
+
+app.post('/book', (req, res) => {
+  const booking = req.body;
+
+  // Simulate saving to a database (you can add MongoDB later)
+  console.log('New Booking:', booking);
+
+  res.send(`
+    <h1>Thank you for your booking, ${booking.name}!</h1>
+    <p>We’ve received your booking from ${booking.checkin} to ${booking.checkout}.</p>
+    <a href="/">Back to Home</a>
+  `);
+});
+
+// Start server
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
+});
+npm init -y
+npm install express body-parser
+node <server class="js"></server>
