@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hotel Booking - Contact</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    .site-header {
+      background-color: #ffffff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      margin-left: 1.5rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      transition: background 0.3s, color 0.3s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: #c59d5f;
+      color: #fff;
+      border-radius: 5px;
+    }
+    .contact-section {
+      padding: 4rem 0;
+      background-color: #fff;
+    }
+    .contact-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+    }
+    .contact-form, .contact-info {
+      flex: 1 1 45%;
+    }
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+    }
+    .contact-form label {
+      margin: 0.5rem 0 0.2rem;
+    }
+    .contact-form input, .contact-form textarea {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+    .contact-form button {
+      padding: 0.75rem;
+      background-color: #c59d5f;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .contact-form button:hover {
+      background-color: #a07b42;
+    }
+    .contact-info ul {
+      list-style: none;
+      padding: 0;
+    }
+    .contact-info li {
+      margin-bottom: 1rem;
+    }
+    /* Toast */
+    #toast {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 5px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      z-index: 1000;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <h1 class="logo">HotelLux</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <section class="contact-section container">
+    <h2>Contact Us</h2>
+    <div class="contact-container">
+      <div class="contact-form">
+        <!-- ✅ FIXED FORM -->
+        <form onsubmit="showThankYou(event)">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+
+      <div class="contact-info">
+        <ul>
+          <li><strong>Address:</strong> 123 Luxury Lane, City Center, Country</li>
+          <li><strong>Phone:</strong> +91 7095321865</li>
+          <li><strong>Email:</strong> info@hotellux.com</li>
+          <li><strong>Map:</strong><br>
+            <iframe
+              src="maps.jpg"
+              width="100%"
+              height="300"
+              style="border:0; border-radius:10px; box-shadow:0 4px 12px rgba(0,0,0,0.1);"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ✅ Toast Message -->
+  <div id="toast">Thank you for your feedback!</div>
+
+  <!-- ✅ Script -->
+  <script>
+    function showThankYou(event) {
+      event.preventDefault(); // stop form from refreshing
+
+      // Show toast
+      const toast = document.getElementById("toast");
+      toast.style.display = "block";
+
+      // Reset form fields
+      event.target.reset();
+
+      // Hide toast after 3 seconds
+      setTimeout(() => {
+        toast.style.display = "none";
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
