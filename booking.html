@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hotel Booking - Book Now</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f8f8;
+    }
+    .site-header {
+      background-color: #ffffff;
+      padding: 1rem 0;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    }
+    .container {
+      width: 90%;
+      max-width: 800px;
+      margin: auto;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .nav-links {
+      display: flex;
+      list-style: none;
+    }
+    .nav-links li {
+      margin-left: 1rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      background-color: #c59d5f;
+      color: #fff;
+      border-radius: 5px;
+    }
+    .booking-form {
+      background: #fff;
+      padding: 2rem;
+      margin-top: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.7rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .btn {
+      background-color: #c59d5f;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover {
+      background-color: #a37f43;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container navbar">
+      <h1 class="logo">HotelLux</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="rooms.html">Rooms</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+    </div>
+  </header>
+
+  <div class="container booking-form">
+    <h2>Book Your Stay</h2>
+    <form id="bookingForm">
+      <div class="form-group">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="checkin">Check-in Date</label>
+        <input type="date" id="checkin" required>
+      </div>
+      <div class="form-group">
+        <label for="checkout">Check-out Date</label>
+        <input type="date" id="checkout" required>
+      </div>
+      <div class="form-group">
+        <label for="room">Room Type</label>
+        <select id="room" required>
+          <option value="">Select a room</option>
+          <option>Deluxe Room</option>
+          <option>Executive Suite</option>
+          <option>Single Room</option>
+        </select>
+      </div>
+      <div class="form-group center">
+        <button type="submit" class="btn">Confirm Booking</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    // Pre-fill room based on URL parameter
+    const params = new URLSearchParams(window.location.search);
+    const selectedRoom = params.get('room');
+    if (selectedRoom) {
+      const roomSelect = document.getElementById("room");
+      for (let option of roomSelect.options) {
+        if (option.text === selectedRoom) {
+          option.selected = true;
+          break;
+        }
+      }
+    }
+
+    // Redirect on form submission
+    document.getElementById("bookingForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      window.location.href = "confirmation.html";
+    });
+  </script>
+</body>
+</html>
